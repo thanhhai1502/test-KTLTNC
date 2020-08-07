@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/artbullet.png" type="Texture" id=1]
+[ext_resource path="res://src/Bullet/Bullet.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.54549, 5.30918 )
+
+[node name="Bullet" type="KinematicBody2D"]
+position = Vector2( 58.9369, 56.3873 )
+collision_layer = 8
+collision_mask = 10
+script = ExtResource( 2 )
+
+[node name="artbullet" type="Sprite" parent="."]
+position = Vector2( 0.0711425, -3.60608e-06 )
+scale = Vector2( 0.0686389, 0.0571017 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

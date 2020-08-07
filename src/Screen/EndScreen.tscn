@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/UserInterface/PlayButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/paralax_space.jpg" type="Texture" id=5]
+[ext_resource path="res://src/Screen/EndScreen.gd" type="Script" id=6]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="paralax_space" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_top = 3.10803
+margin_right = -4.0
+margin_bottom = -8.89197
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="." instance=ExtResource( 3 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -208.12
+margin_top = -239.402
+margin_right = 181.88
+margin_bottom = -191.402
+text = "Congratulation!!!!"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 402.881
+margin_top = 121.718
+margin_right = 610.881
+margin_bottom = 210.718
+text = "Your score: %s
+Your Died times: %s"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -148.0
+margin_top = -58.0
+margin_right = 148.0
+margin_bottom = 105.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayAgainButton" parent="Menu" instance=ExtResource( 2 )]
+margin_bottom = 79.0
+
+[node name="ExitButton" parent="Menu" instance=ExtResource( 4 )]
+margin_top = 83.0
+margin_bottom = 163.0
