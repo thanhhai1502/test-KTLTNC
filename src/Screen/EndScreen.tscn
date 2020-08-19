@@ -1,16 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
 [ext_resource path="res://src/UserInterface/PlayButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/paralax_space.jpg" type="Texture" id=5]
 [ext_resource path="res://src/Screen/EndScreen.gd" type="Script" id=6]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Button
-
-"
+[ext_resource path="res://src/UserInterface/PlayAgainButton.gd" type="Script" id=7]
+[ext_resource path="res://assets/font_title.tres" type="DynamicFont" id=8]
 
 [node name="EndScreen" type="Control"]
 anchor_right = 1.0
@@ -35,19 +32,21 @@ __meta__ = {
 }
 
 [node name="Title" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0.941176, 0.905882, 0.0666667, 1 )
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 297.144
-margin_top = -236.078
-margin_right = 687.144
-margin_bottom = -188.078
+margin_left = 310.44
+margin_top = -242.726
+margin_right = 738.44
+margin_bottom = -185.726
+custom_fonts/font = ExtResource( 8 )
 text = "Congratulation!!!!"
 
 [node name="Label" type="Label" parent="."]
-margin_left = 402.881
-margin_top = 121.718
-margin_right = 610.881
-margin_bottom = 210.718
+margin_left = 386.26
+margin_top = 132.798
+margin_right = 642.26
+margin_bottom = 221.798
 text = "Your score: %s
 Your Died times: %s"
 __meta__ = {
@@ -68,9 +67,9 @@ __meta__ = {
 }
 
 [node name="PlayAgainButton" parent="Menu" instance=ExtResource( 2 )]
-margin_bottom = 79.0
-script = SubResource( 1 )
+theme = ExtResource( 1 )
+script = ExtResource( 7 )
 
 [node name="ExitButton" parent="Menu" instance=ExtResource( 4 )]
-margin_top = 83.0
+margin_top = 85.0
 margin_bottom = 163.0
