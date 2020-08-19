@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var bullet = preload("res://src/Bullet/Bullet.tscn") 
-var speed = 450
+export var speed = 450
 
 
 
