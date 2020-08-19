@@ -27,20 +27,20 @@ __meta__ = {
 }
 
 [node name="Title" parent="." instance=ExtResource( 1 )]
-margin_left = -90.4724
-margin_top = 92.4321
-margin_right = 85.5276
-margin_bottom = 150.432
+margin_left = 402.899
+margin_top = 106.592
+margin_right = 625.899
+margin_bottom = 193.592
 
 [node name="Menu" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -148.0
-margin_top = -79.5
-margin_right = 148.0
-margin_bottom = 79.5
+margin_left = -141.861
+margin_top = -34.0737
+margin_right = 154.139
+margin_bottom = 124.926
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,4 +50,4 @@ __meta__ = {
 [node name="ExitButton" parent="Menu" instance=ExtResource( 3 )]
 pause_mode = 2
 margin_top = 81.0
-margin_bottom = 159.0
+margin_bottom = 158.0

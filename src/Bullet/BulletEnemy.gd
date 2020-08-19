@@ -14,5 +14,5 @@ func _physics_process(delta: float) -> void:
 	if (collidedObject):
 		collidedObject.get_collider()#.queue_free()
 		queue_free()
-	#	PlayerData.deaths += 1
+
 		

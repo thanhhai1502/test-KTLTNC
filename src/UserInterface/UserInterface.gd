@@ -4,7 +4,7 @@ onready var scene_tree: = get_tree()
 onready var pause_overlay: ColorRect = get_node("PauseOverlay")
 onready var score: Label = get_node("Label")
 onready var pause_title: Label = get_node("PauseOverlay/Title")
-#onready var countinue = 
+
 
 
 var paused: = false setget set_paused

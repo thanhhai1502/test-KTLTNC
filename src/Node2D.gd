@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Node2D
 
 export (PackedScene) var enemies
 var bullet = preload("res://src/Bullet/BulletEnemy.tscn") 

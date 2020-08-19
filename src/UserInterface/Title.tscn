@@ -1,12 +1,8 @@
 [gd_scene format=2]
 
 [node name="Title" type="Label"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -108.0
-margin_top = 165.0
-margin_right = 26.0001
-margin_bottom = 239.0
+margin_right = 231.0
+margin_bottom = 68.0
 text = "My First Game"
 align = 1
 __meta__ = {

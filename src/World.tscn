@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/paralax_space.jpg" type="Texture" id=2]
 [ext_resource path="res://src/Enemy/Enemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/UserInterface/UserInterface.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/actor/Portal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/enemy.png" type="Texture" id=6]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -16,7 +17,10 @@ script/source = "extends Node2D
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 
-[sub_resource type="TileSet" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 67, 63, 7, 63, 7, 3, 67, 3 )
+
+[sub_resource type="TileSet" id=4]
 1/name = "paralax_space.jpg 1"
 1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
@@ -52,6 +56,32 @@ points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
 2/shape_one_way_margin = 0.0
 2/shapes = [  ]
 2/z_index = 0
+3/name = "enemy.png 3"
+3/texture = ExtResource( 6 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( -7, -3, 79, 70 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 3 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends TileMap
+
+"
 
 [node name="World1" type="Node2D"]
 script = SubResource( 1 )
@@ -79,12 +109,13 @@ __meta__ = {
 }
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 3 )
+tile_set = SubResource( 4 )
 cell_quadrant_size = 10
 collision_layer = 16
-collision_mask = 8
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 65536, 1, 0, 65537, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 131072, 1, 0, 131073, 1, 0, 131081, 1, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 1, 0, 196608, 1, 0, 196609, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196620, 1, 0, 196621, 1, 0, 196622, 1, 0, 196623, 1, 0, 262144, 1, 0, 262145, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 327680, 1, 0, 327681, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 393216, 1, 0, 393217, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 458752, 1, 0, 458753, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 524288, 1, 0, 524289, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0 )
+script = SubResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 347.717, 507.92 )
@@ -93,43 +124,46 @@ position = Vector2( 347.717, 507.92 )
 position = Vector2( 0.630249, 28.3281 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 385.532, 171.805 )
+position = Vector2( 159.369, 139.805 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 171.553, 105.209 )
+position = Vector2( 225.28, 139.805 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 247.477, 105.099 )
+position = Vector2( 287.313, 139.805 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 311.009, 106.33 )
+position = Vector2( 352, 139.805 )
 
 [node name="Enemy5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 384.987, 106.767 )
+position = Vector2( 416, 139.805 )
 
 [node name="Enemy6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 456.079, 108.838 )
+position = Vector2( 480, 139.805 )
 
 [node name="Enemy7" parent="." instance=ExtResource( 3 )]
-position = Vector2( 527.05, 104.163 )
+position = Vector2( 544, 139.805 )
 
 [node name="Enemy8" parent="." instance=ExtResource( 3 )]
-position = Vector2( 451.474, 175.636 )
+position = Vector2( 193.28, 208 )
 
 [node name="Enemy9" parent="." instance=ExtResource( 3 )]
-position = Vector2( 348.908, 243.128 )
+position = Vector2( 257.28, 208 )
 
 [node name="Enemy10" parent="." instance=ExtResource( 3 )]
-position = Vector2( 173.779, 167.836 )
+position = Vector2( 320, 208 )
 
 [node name="Enemy11" parent="." instance=ExtResource( 3 )]
-position = Vector2( 244.961, 168.425 )
+position = Vector2( 384, 208 )
 
 [node name="Enemy12" parent="." instance=ExtResource( 3 )]
-position = Vector2( 310.759, 174.395 )
+position = Vector2( 448, 208 )
 
 [node name="Enemy13" parent="." instance=ExtResource( 3 )]
-position = Vector2( 521.636, 176.56 )
+position = Vector2( 512, 208 )
+
+[node name="Enemy14" parent="." instance=ExtResource( 3 )]
+position = Vector2( 352, 272 )
 
 [node name="Portal" parent="." instance=ExtResource( 5 )]
 position = Vector2( 301.959, 41.7176 )
